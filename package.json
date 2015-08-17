@@ -1,0 +1,14 @@
+{
+	"name"				: "MEAN-todo-list",
+	"version"			: "0.1.0",
+	"description"		: "To-do list made with the MEAN stack",
+	"main"				: "server.js",
+	"author"			:"@sergiopalooza",
+	"dependencies"		: {
+		"express"		: "~4.7.2",
+		"mongoose"		: "~3.6.2",
+		"morgan"		: "~1.2.2",
+		"body-parser"	: "~1.5.2",
+		"method-override": "2.1.2"
+	}
+}
