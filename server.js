@@ -10,7 +10,7 @@ var methodOverride = require('method-Override');
 
 mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu'); //connecting to our mongo database
 
-app.use(express.static(__dirname + '/public')); 		//serves static files from the root folder
+app.use(express.static(__dirname + '/public')); 		//serves static files from the root folder. public/img becomes img/ for user
 app.use(morgan('dev')); 								//set up logging for each request to console
 app.use(bodyParser.urlencoded({'extended':'true'}));	//parse application/x-www-form-urlencoded
 app.use(bodyParser.json());								//parse application/json
@@ -79,6 +79,11 @@ var Todo = mongoose.model('Todo', {
 		});
 	});
 
+	//application
+	app.get('*', function(req, res){
+		res.sendfile('./public/index.html');
+	});
+	
 //start node.js app on port 8080
 app.listen(8080);
 console.log('Listening on port 8080');
