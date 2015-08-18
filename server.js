@@ -33,8 +33,49 @@ var Todo = mongoose.model('Todo', {
 				res.send(err);
 			}
 			else {
-				res.json(todos);
+				res.json(todos); //return all todos in JSON
 			}
+		});
+	});
+
+	//create todo and fetch all the todos after creation
+	app.post('/api/todos', function(req, res){
+
+		//create todo, info coming from AJAX request from Angular
+		Todo.create({
+			text: req.body.text,
+			done: false,
+		}, function(err, todo){
+			if(err){
+				res.send(err);
+			}
+			
+			//get and find all todos when you create another one
+			Todo.find(function(err, todos){
+				if(err){
+					res.send(err)
+				}
+				res.json(todo);
+			});
+		});
+	});
+
+	//delete a todo
+	app.delete('/api/todos/:todo_id', function(req, res){
+		Todo.remove({
+			_id: req.params.todo_id
+		}, function(err, todos){
+			if(err){
+				res.send(err);
+			}
+
+			//get and return all todos after deletion
+			Todo.find(function(err, todos){
+				if(err){
+					res.send(err);
+				}
+				res.json(todos);
+			});
 		});
 	});
 
