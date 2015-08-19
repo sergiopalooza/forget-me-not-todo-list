@@ -19,7 +19,7 @@ function mainController($scope, $http){
 		$scope.createTodo = function(){
 			$http.post('/api/todos', $scope.formData)
 				.success(function(date){
-					$scope.formData = {} //clear the form so the user can enter another todo
+					$scope.formData = {}; //clear the form so the user can enter another todo
 					$scope.todos = data;
 					console.log('data');
 				})
