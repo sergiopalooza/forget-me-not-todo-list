@@ -21,7 +21,7 @@ function mainController($scope, $http){
 				.success(function(date){
 					$scope.formData = {}; //clear the form so the user can enter another todo
 					$scope.todos = data;
-					console.log('data');
+					console.log(data);
 				})
 				.error(function(data){
 					console.log('Error: ' + data);
@@ -32,7 +32,7 @@ function mainController($scope, $http){
 			$http.delete('/api/todos/' + id)
 			.success(function(data){
 				$scope.todos= data;
-				console.log('data');
+				console.log(data);
 			})
 			.error(function(data){
 				console.log('Error: ' + data);
