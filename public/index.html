@@ -12,8 +12,45 @@
 		body 		{padding-top: 50px;}
 		#todo-list 	{overflow-y: 30px;}
 	</style>
+	<!--Javascript-->	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
 </head>
-<body>
+<!--Bind controller and get todos-->
+<body ng-controller="mainController">
+	<div class="container">
+
+		<!-- Header and todo count -->		
+		<div class="jumbotron text-center"></div>
+			<h1>Don't forget stupid <span class="label label-info"> {{ todos.length }}</span></h1>
+	</div>
+
+	<!-- TODO LIST -->
+	<div id="todo-list" class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<!-- loop over todos in $scope.todos -->
+			<div class="checkbox" ng-repeat="todo in todos">
+				<label>
+					<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+				</label>
+			</div>		
+		</div>
+	</div>
+
+	<!-- form to create todos -->	
+	<div id="todo-form" class="row">
+		<div class="col-sm-8 col-sm-offset-2 text-center">
+			<form>
+				<div class="form-group">
+					<!-- Bind this value to formData.text in Angular -->				
+					<input type="text" class="form-control input-lg text-center" placeholder="I want a puppy" ng-model="fromData.text">	
+				</div>
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+			</form>
+		</div>
+	</div>
+
 </body>
 </html>
-<!--###-->
+<!-- ### -->
