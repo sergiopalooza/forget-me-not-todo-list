@@ -29,12 +29,11 @@ var Todo = mongoose.model('Todo', {
 		Todo.find(function(err, todos){
 
 			//send error if cant get todos
-			if(err){
+			if(err)
 				res.send(err);
-			}
-			else {
-				res.json(todos); //return all todos in JSON
-			}
+			
+			res.json(todos); //return all todos in JSON
+			
 		});
 	});
 
@@ -44,7 +43,7 @@ var Todo = mongoose.model('Todo', {
 		//create todo, info coming from AJAX request from Angular
 		Todo.create({
 			text: req.body.text,
-			done: false,
+			done: false
 		}, function(err, todo){
 			if(err){
 				res.send(err);
@@ -52,9 +51,8 @@ var Todo = mongoose.model('Todo', {
 			
 			//get and find all todos when you create another one
 			Todo.find(function(err, todos){
-				if(err){
+				if(err)
 					res.send(err)
-				}
 				res.json(todo);
 			});
 		});
@@ -83,7 +81,7 @@ var Todo = mongoose.model('Todo', {
 	app.get('*', function(req, res){
 		res.sendfile('./public/index.html');
 	});
-	
+
 //start node.js app on port 8080
 app.listen(8080);
 console.log('Listening on port 8080');
