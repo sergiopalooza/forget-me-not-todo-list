@@ -27,7 +27,7 @@ function mainController($scope, $http){
 					console.log('Error: ' + data);
 				});
 		};
-
+		//delete todo after checking it
 		$scope.deleteTodo = function(id){
 			$http.delete('/api/todos/' + id)
 			.success(function(data){
