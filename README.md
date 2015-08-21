@@ -1,7 +1,7 @@
 # Forget Me Not
-To-do list made with the MEAN stack
+To-do list made with the MEAN stack.
 
-An excercise in MongoDB, Express, Angular, and Node
+An excercise in MongoDB, Express, Angular, and Node.
 
 ## Requirements
 
