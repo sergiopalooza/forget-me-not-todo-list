@@ -1,0 +1,8 @@
+html 		{overflow-y: scroll;}
+body 		{padding-top: 50px;}
+#todo-list 	{overflow-y: 30px;}
+
+.jumbotron {
+	background-color: #E3A1B7;
+;
+}
