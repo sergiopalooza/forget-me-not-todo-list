@@ -14,4 +14,4 @@ An excercise in MongoDB, Express, Angular, and Node.
 3. Start the server: `node server.js`
 4. View in browser at `http://localhost:8080`
 
-[Imgur](http://i.imgur.com/jV8v6rE.png?1)
+![Imgur](http://i.imgur.com/jV8v6rE.png?1)
