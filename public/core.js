@@ -15,7 +15,6 @@ function mainController($scope, $http){
 		});
 
 		//when submitting the add form, send the text to our node API
-
 		$scope.createTodo = function(){
 			$http.post('/api/todos', $scope.formData)
 				.success(function(data){
@@ -27,6 +26,7 @@ function mainController($scope, $http){
 					console.log('Error: ' + data);
 				});
 		};
+		
 		//delete todo after checking it
 		$scope.deleteTodo = function(id){
 			$http.delete('/api/todos/' + id)
